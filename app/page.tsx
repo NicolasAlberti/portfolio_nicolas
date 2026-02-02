@@ -136,11 +136,11 @@ function HeroSection() {
                   ============================================================ */}
               <div className="w-full h-full bg-secondary border border-white/10 overflow-hidden">
                 <Image
-                  src={personalInfo.profileImage}
+                  src="/images/profile.jpg"
                   alt={personalInfo.name}
                   width={400}
                   height={400}
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+className="w-full h-full object-cover"
                   priority
                 />
               </div>
@@ -191,16 +191,13 @@ function AboutSection() {
                 <p className="text-sm text-muted mt-1">Anos de experiência</p>
               </div>
               <div>
-                <p className="text-4xl font-bold" style={{ fontFamily: 'var(--font-display)' }}>486</p>
+                <p className="text-4xl font-bold" style={{ fontFamily: 'var(--font-display)' }}>2000+</p>
                 <p className="text-sm text-muted mt-1">Máquinas gerenciadas</p>
               </div>
+
               <div>
-                <p className="text-4xl font-bold" style={{ fontFamily: 'var(--font-display)' }}>200+</p>
-                <p className="text-sm text-muted mt-1">Atendimentos/dia</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold" style={{ fontFamily: 'var(--font-display)' }}>60%</p>
-                <p className="text-sm text-muted mt-1">Ganho em escalabilidade</p>
+                <p className="text-4xl font-bold" style={{ fontFamily: 'var(--font-display)' }}>30+</p>
+                <p className="text-sm text-muted mt-1">Rotinas Automatizadas</p>
               </div>
             </div>
           </div>
@@ -213,29 +210,33 @@ function AboutSection() {
 // ============================================================================
 // PROJECTS SECTION
 // ============================================================================
+// app/page.tsx
+
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
   const [imageError, setImageError] = useState(false);
 
   return (
     <article className={`group ${project.featured ? 'lg:col-span-2' : ''}`}>
       <div className="space-y-4">
-        {/* Project Image */}
-        <div className="relative aspect-video bg-secondary overflow-hidden border border-white/5">
-          {/* ============================================================
-              📸 SCREENSHOT DO PROJETO
-              As imagens são carregadas de /public/projects/
-              Se a imagem não existir, mostra um placeholder
-              ============================================================ */}
+
+        {/* 1. REMOVI 'aspect-video' DAQUI e mantive relative para o overlay funcionar */}
+        <div className="relative bg-secondary overflow-hidden border border-white/5">
+
           {!imageError ? (
             <Image
               src={project.image}
               alt={project.title}
-              fill
-              className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+              // 2. CONFIGURAÇÃO DE ALTURA DINÂMICA
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: '100%', height: 'auto' }} // Força a imagem a ditar a altura
+              className="object-cover transition-all duration-500 group-hover:scale-105"
               onError={() => setImageError(true)}
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-muted">
+            // Placeholder (caso a imagem falhe) - Mantemos uma altura fixa aqui para não quebrar
+            <div className="w-full aspect-video flex items-center justify-center text-muted">
               <div className="text-center">
                 <p className="font-mono text-xs">Screenshot</p>
                 <p className="font-mono text-xs text-muted/50 mt-1">{project.image}</p>
@@ -243,7 +244,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             </div>
           )}
 
-          {/* Hover Overlay */}
+          {/* Hover Overlay - Continua funcionando pois o pai (relative) agora tem a altura da imagem */}
           <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
             {project.liveUrl && (
               <Link
@@ -273,7 +274,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           </div>
         </div>
 
-        {/* Project Info */}
+        {/* Project Info (sem alterações) */}
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-semibold group-hover:text-white transition-colors">

@@ -40,10 +40,10 @@ export const projects: Project[] = [
   {
     id: "digital-signage",
     title: "Digital Signage System",
-    description: "Sistema de sinalização digital com controle remoto, gestão de mídia e suporte multi-dispositivo.",
+    description: "Sistema de sinalização digital com controle remoto, gestão de mídia e suporte multi-dispositivo. (acesso ao demo, senha: admin@2026)",
     longDescription: "Plataforma para gerenciamento de displays digitais com controle remoto, upload e organização de mídias, agendamento de conteúdo e otimização para Raspberry Pi.",
     // 🔗 ADICIONE OS LINKS REAIS ABAIXO:
-    liveUrl: "",
+    liveUrl: "https://telassystem.vercel.app/",
     githubUrl: "",
     // 📸 ADICIONE A SCREENSHOT:
     image: "/projects/signage-placeholder.png",
@@ -60,38 +60,9 @@ export const projects: Project[] = [
   // ============================================================================
   // 🧪 SISTEMA DE RESERVA DE LABORATÓRIOS
   // ============================================================================
-  {
-    id: "reserva-labs",
-    title: "Sistema de Reserva de Labs",
-    description: "Plataforma de reservas com workflow de aprovação, analytics e geração de relatórios PDF.",
-    longDescription: "Sistema completo para gestão de reservas de laboratórios com fluxo de aprovação hierárquico, dashboard analítico de utilização e exportação automática de relatórios.",
-    // 🔗 ADICIONE OS LINKS REAIS ABAIXO:
-    liveUrl: "",
-    githubUrl: "",
-    // 📸 ADICIONE A SCREENSHOT:
-    image: "/projects/labs-placeholder.png",
-    tags: ["Next.js", "FastAPI", "MongoDB", "PDF Generation"],
-    featured: false,
-    year: "2023"
-  },
 
-  // ============================================================================
-  // 📊 PORTAL CIPA
-  // ============================================================================
-  {
-    id: "portal-cipa",
-    title: "Portal CIPA",
-    description: "Portal administrativo com editor de conteúdo avançado e sistema de gestão de cartilhas.",
-    longDescription: "Interface administrativa com editor drag-and-drop, gerenciamento de cartilhas com visualizador PDF interativo e sistema de publicação de conteúdo.",
-    // 🔗 ADICIONE OS LINKS REAIS ABAIXO:
-    liveUrl: "",
-    githubUrl: "",
-    // 📸 ADICIONE A SCREENSHOT:
-    image: "/projects/cipa-placeholder.png",
-    tags: ["Next.js", "TypeScript", "PDF.js", "TailwindCSS"],
-    featured: false,
-    year: "2024"
-  },
+
+
 
   // ============================================================================
   // ➕ ADICIONE MAIS PROJETOS AQUI
